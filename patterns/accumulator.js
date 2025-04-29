@@ -23,6 +23,20 @@ export function sumToN(n) {
  */
 export function factorial(n) {
   // TODO
+  let product = 1;
+
+  if (typeof n !== "number") {
+    return NaN;
+  } else if (n < 0) {
+    return undefined;
+  } else if (n === 0) {
+    return 1;
+  }
+
+  for (let i = 1; i <= n; i++) {
+    product = product * i;
+  }
+  return product;
 }
 
 /**
@@ -33,6 +47,16 @@ export function factorial(n) {
  */
 export function buildNArray(n) {
   // TODO
+  const array = [];
+  if (typeof n !== "number") {
+    return null;
+  } else if (n <= 0) {
+    return [];
+  }
+  for (let i = 1; i <= n; i++) {
+    array.push(i);
+  }
+  return array;
 }
 
 /**
@@ -41,6 +65,16 @@ export function buildNArray(n) {
  */
 export function getLongestString(strings) {
   // TODO
+  if (strings.length === 0) {
+    return "";
+  }
+  return strings.reduce((accumulator, current) => {
+    if (current.length > accumulator.length) {
+      return current;
+    } else {
+      return accumulator;
+    }
+  }, "");
 }
 
 /**
@@ -49,8 +83,15 @@ export function getLongestString(strings) {
  */
 export function countPresent(attendance) {
   // TODO
-}
+  // const present = [];
 
+  if (attendance.length === 0) {
+    return 0;
+  }
+
+  const present = attendance.filter((value) => value === true);
+  return present.length;
+}
 /**
  * In DNA strings, the symbols `A` and `T` are complements of each other,
  * and the symbols `C` and `G` are complements of each other.

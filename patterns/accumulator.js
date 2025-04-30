@@ -104,4 +104,24 @@ export function countPresent(attendance) {
  */
 export function complementDNA(dna) {
   // TODO
+
+  if (typeof dna != "string") {
+    return null;
+  } else if (dna === "") {
+    return "";
+  }
+  const arrayDNA = dna.split("");
+
+  const compDNA = arrayDNA.map((x) => {
+    if (x === "A") {
+      return "T";
+    } else if (x === "T") {
+      return "A";
+    } else if (x === "C") {
+      return "G";
+    } else if (x === "G") {
+      return "C";
+    }
+  });
+  return compDNA.join("");
 }
